@@ -17,6 +17,8 @@
   text-align: center;
   /*width: 350px;*/
   height: 280px;
+  width: 310px;
+  max-width: 310px;
 }
 
 form {

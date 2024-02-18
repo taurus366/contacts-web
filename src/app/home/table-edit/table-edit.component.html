@@ -1,1 +1,34 @@
-<p>table-edit works!</p>
+<div class="fullscreen-bg">
+
+
+
+  <div class="add-table-container">
+
+    <form #form="ngForm" method="post" (ngSubmit)="update(form)">
+
+      <input type="text" #firstName="ngModel" name="firstName" id="firstName" placeholder="first name" ngModel
+             [class.error-border]="isFirstNameInCorrect" required [(ngModel)]="user!.firstName">
+      <span style="color: red" *ngIf="isFirstNameInCorrect">{{firstNameMessage}}</span>
+
+
+      <input type="text" #lastName="ngModel" name="lastName" id="lastName" placeholder="last name" ngModel
+             [class.error-border]="isLastNameInCorrect" required [(ngModel)]="user!.lastName">
+      <span style="color: red" *ngIf="isLastNameInCorrect">{{lastNameMessage}}</span>
+
+
+      <input type="text" #emailAddress="ngModel" name="emailAddress" id="emailAddress" placeholder="email address" ngModel
+             [class.error-border]="isEmailAddressInCorrect" required [(ngModel)]="user!.emailAddress">
+      <span style="color: red" *ngIf="isEmailAddressInCorrect">{{emailAddressMessage}}</span>
+
+
+      <input type="text" #phoneNumber="ngModel" name="phoneNumber" id="phoneNumber" placeholder="phone number" ngModel
+             [class.error-border]="isPhoneNumberInCorrect" required [(ngModel)]="user!.phoneNumber">
+      <span style="color: red" *ngIf="isPhoneNumberInCorrect">{{phoneNumberMessage}}</span>
+
+      <input type="submit" class="btn" value="Edit">
+      <a href="#" class="btn" (click)="hideWindow($event)">Cancel</a>
+    </form>
+
+
+  </div>
+</div>

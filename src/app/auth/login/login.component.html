@@ -8,11 +8,14 @@
     <section class="window-main">
 
       <form #form="ngForm" method="post" (ngSubmit)="login(form)">
+
         <input type="text" #username="ngModel" name="username" id="username" placeholder="username" ngModel
                [class.error-border]="isUsernameInCorrect" required>
 
         <input type="password" #password="ngModel" name="password" id="password" placeholder="password" ngModel
           [class.error-border]="isPasswordInCorrect" required>
+
+        <span *ngIf="isPasswordInCorrect && isUsernameInCorrect">{{msg}}</span>
 
         <input type="submit" value="login">
 

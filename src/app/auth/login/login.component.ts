@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit{
 
   isUsernameInCorrect: boolean = false;
   isPasswordInCorrect: boolean = false;
+  msg: String = 'Please check if username/password are correct';
 
 
   constructor(private router: Router, private conn: ConnService) {
@@ -62,7 +63,10 @@ export class LoginComponent implements OnInit{
 
 
           },
-          error: err => {},
+          error: err => {
+            this.isUsernameInCorrect = true;
+            this.isPasswordInCorrect = true;
+          },
           complete: () => {
             this.router.navigate(['home']).then(r => r);
           }

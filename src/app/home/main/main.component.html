@@ -5,10 +5,12 @@
 
   <section class="btn-place">
 
-    <a href="" class="btn">ADD</a>
+    <a href="#" class="btn" (click)="addBtnClick($event)">ADD</a>
 <!--    Here could be used (change) instead of (input) but then should be click outside of the field-->
     <input (input)="onFieldsChange()" class="field" type="text" name="firstName" id="firstName" placeholder="First name">
     <input (input)="onFieldsChange()" class="field" type="text" name="lastName" id="lastName" placeholder="Last name">
+    <a href="#" class="btn" (click)="onFieldsChange($event)">REFRESH</a>
+
 
   </section>
 
@@ -23,15 +25,15 @@
       <th>Buttons</th>
     </tr>
 
-    @for (item of user; track item.id; let idx = $index, e = $even) {
+    @for (item of user; track item.id;) {
       <tr>
         <td>{{ item.firstName }}</td>
         <td>{{ item.lastName }}</td>
         <td>{{ item.emailAddress }}</td>
         <td>{{ item.phoneNumber }}</td>
         <td >
-          <a (click)="editBtnClick(idx, $event)" href="#"  class="btn">Edit</a>
-          <a (click)="removeBtnClick(idx, $event)" href="#"  class="btn">Remove</a>
+          <a (click)="editBtnClick(item.id, $event)" href="#"  class="btn">Edit</a>
+          <a (click)="removeBtnClick(item.id, $event)" href="#"  class="btn">Remove</a>
         </td>
       </tr>
     } @empty {
@@ -44,8 +46,10 @@
   </section>
 </div>
 
+<!-- HERE I COULD USE ONLY app-table-add instead of 2 views like -edit ,
+for example: add and edit in window table-add
+but good practise / code pretty is every window has own logic-->
 
+<app-table-add (eventEmitterRefreshContacts)="fetchAllOrByFilter({})" *ngIf="viewAddTable" (eventEmitterHideAddWindow)="hideAddWindow()"></app-table-add>
 
-<app-table-add *ngIf="viewAddTable" ></app-table-add>
-
-<app-table-edit *ngIf="viewEditTable"></app-table-edit>
+<app-table-edit [idForEdit]="idForEdit" (eventEmitterRefreshContacts)="fetchAllOrByFilter({})" *ngIf="viewEditTable" (eventEmitterHideEditWindow)="hideEditWindow()"></app-table-edit>

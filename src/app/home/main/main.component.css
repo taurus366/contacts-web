@@ -19,7 +19,8 @@
 table {
   margin-top: 5px;
   border: 1px solid black;
-  /*width: 600px;*/
+  min-width: 600px;
+  min-height: 300px;
 }
 
 .table-main {

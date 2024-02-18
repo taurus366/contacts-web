@@ -28,12 +28,12 @@ export class ConnService {
   logout() {
     return this.http.get(`${api}/admin/logout`)
   }
-  //
-  // deleteContactById(data: {id: number}) {
-  //   return this.http.post(`${api}/users/delete/id=${data.id}`, {
-  //     observe: 'response'
-  //   })
-  // }
+
+  deleteContactById(data: {id: number}) {
+    return this.http.delete(`${api}/user/remove/${data.id}`, {
+      observe: 'response'
+    })
+  }
 
   getAllContactsOrByFilter(data : {}) {
     let rs = "?";
@@ -44,13 +44,29 @@ export class ConnService {
       rs += rs.length === 1 ? encoded : '&'+ encoded;
     }
 
-
-
     return this.http.get<IUSER[]>(`${api}/user/get/all${rs}`);
   }
 
   checkLoggedStatus() {
     return this.http.get(`${api}/admin/status`, {
+      observe: 'response'
+    })
+  }
+
+  addNewContact(data: {}) {
+    return this.http.post(`${api}/user/create`, data, {
+      observe: 'response'
+    })
+  }
+
+  getContactById(id: number) {
+   return this.http.get<IUSER>(`${api}/user/get/${id}`, {
+      observe: 'response'
+    })
+  }
+
+  putContact(data: {}) {
+    return this.http.put(`${api}/user/edit`, data, {
       observe: 'response'
     })
   }
