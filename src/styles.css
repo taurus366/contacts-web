@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+.error-border {
+  border-color: red;
+}
+.error-color {
+  color: red;
+}
+.error-background {
+  background-color: #ff000061;
+}
+.error-border-solid2px {
+  border: 2px solid red;
+}

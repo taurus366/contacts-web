@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="login-window-container">
+  <div class="login-window">
+
+    <section class="window-header">
+      <h3>Log in CONTACTS</h3>
+    </section>
+
+    <section class="window-main">
+
+      <form #form="ngForm" method="post" (ngSubmit)="login(form)">
+        <input type="text" #username="ngModel" name="username" id="username" placeholder="username" ngModel
+               [class.error-border]="isUsernameInCorrect" required>
+
+        <input type="password" #password="ngModel" name="password" id="password" placeholder="password" ngModel
+          [class.error-border]="isPasswordInCorrect" required>
+
+        <input type="submit" value="login">
+
+      </form>
+
+    </section>
+
+  </div>
+</div>

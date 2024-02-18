@@ -3,6 +3,7 @@ import {IUSER} from "../../shared/interfaces/IUSER";
 import {TableComponent} from "../table/table.component";
 import {TableAddComponent} from "../table-add/table-add.component";
 import {TableEditComponent} from "../table-edit/table-edit.component";
+import {BooleansService} from "../../shared/booleans.service";
 
 @Component({
   selector: 'app-main',
@@ -19,8 +20,13 @@ export class MainComponent implements OnInit {
 
   user: IUSER | undefined;
 
-  ngOnInit(): void {
 
+  constructor(private bool : BooleansService) {
+
+  }
+
+  ngOnInit(): void {
+      console.log(this.bool.isLogged);
   }
 
 }

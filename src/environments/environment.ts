@@ -2,9 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+
+const config = {
   production: false,
-  apiURL: 'http://77.71.76.17:8080'
+  lan: 'http://localhost:8080',
+  wan: 'http://77.71.76.17:8080'
+}
+export const environment = {
+  apiURL: config.production ? config.wan : config.lan
 };
 
 /*

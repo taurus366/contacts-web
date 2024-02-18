@@ -1,7 +1,8 @@
-import {Routes} from '@angular/router';
+import {PreloadAllModules, provideRouter, RouterModule, Routes, withDebugTracing} from '@angular/router';
 import {MainComponent} from "./home/main/main.component";
 import {LoginComponent} from "./auth/login/login.component";
 import {AuthGuard} from "./shared/guard/param-guard.activate";
+
 
 export const routes: Routes = [
 
