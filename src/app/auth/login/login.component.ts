@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
 import {ConnService} from "../../shared/conn.service";
-import {BooleansService} from "../../shared/booleans.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {Router} from "@angular/router";
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit{
   isPasswordInCorrect: boolean = false;
 
 
-  constructor(private router: Router, private conn: ConnService, private boolService: BooleansService) {
+  constructor(private router: Router, private conn: ConnService) {
   }
 
   ngOnInit(): void {
@@ -65,7 +64,6 @@ export class LoginComponent implements OnInit{
           },
           error: err => {},
           complete: () => {
-            this.boolService.isLogged = true;
             this.router.navigate(['home']).then(r => r);
           }
         })

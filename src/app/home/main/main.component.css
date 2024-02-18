@@ -1,0 +1,29 @@
+.table.btns {
+  /*padding: 20px;*/
+  /*width: 80%;*/
+  /*margin: 0 auto;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-place > .btn {
+  display: unset;
+}
+.btn-place > input.field {
+    padding: 7px;
+  margin: 3px;
+}
+
+table {
+  margin-top: 5px;
+  border: 1px solid black;
+  /*width: 600px;*/
+}
+
+.table-main {
+  margin-top: 15px;
+}
+
+

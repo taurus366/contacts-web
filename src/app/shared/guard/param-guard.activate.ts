@@ -41,6 +41,7 @@ export class ParamGuardActivate {
     if(typeof authenticationRequired === 'boolean' && authenticationRequired)
    return promise
       .then(() => {
+        this.booleanService.isLogged = isAuthorized;
         if(isAuthorized) {
           return true;
         } else {

@@ -12,3 +12,21 @@
 .error-border-solid2px {
   border: 2px solid red;
 }
+
+.btn {
+  display: inline-block;
+  padding: 5px 10px; /* Adjust padding as needed */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove default underline */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #007bff; /* Button border */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effects */
+  margin: 3px;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Change background color on hover */
+  border-color: #0056b3; /* Change border color on hover */
+  color: #fff; /* Change text color on hover */
+}
