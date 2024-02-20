@@ -4,6 +4,7 @@ import {ConnService} from "../../shared/conn.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {Router} from "@angular/router";
+import {EmptyFieldDirective} from "../../shared/validator/empty-field.directive";
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import {Router} from "@angular/router";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    EmptyFieldDirective,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'

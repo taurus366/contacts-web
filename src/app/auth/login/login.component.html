@@ -10,10 +10,10 @@
       <form #form="ngForm" method="post" (ngSubmit)="login(form)">
 
         <input type="text" #username="ngModel" name="username" id="username" placeholder="username" ngModel
-               [class.error-border]="isUsernameInCorrect" required>
+               [class.error-border]="isUsernameInCorrect || username.errors?.['invalidField']" emptyFieldValidator required>
 
-        <input type="password" #password="ngModel" name="password" id="password" placeholder="password" ngModel
-          [class.error-border]="isPasswordInCorrect" required>
+        <input #password="ngModel" type="password"  name="password" id="password" placeholder="password" ngModel
+          [class.error-border]="isPasswordInCorrect || password.errors?.['invalidField']" emptyFieldValidator required>
 
         <span *ngIf="isPasswordInCorrect && isUsernameInCorrect">{{msg}}</span>
 
